@@ -12,7 +12,8 @@
       "Bash(start-sleep *)",
       "Bash(.\\venv\\scripts\\python.exe *)",
       "Bash(select-object *)",
-      "Bash(pytest *)"
+      "Bash(pytest *)",
+      "Bash(git reset)"
     ]
   },
   "$version": 3
