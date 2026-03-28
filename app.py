@@ -5,7 +5,8 @@ from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
-templates_dir = Path(__file__).parent / "templates"
+BASE_DIR = Path(__file__).resolve().parent
+templates_dir = BASE_DIR / "templates"
 
 
 @app.get("/hello")
