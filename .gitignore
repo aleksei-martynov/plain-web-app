@@ -8,6 +8,9 @@ venv/
 env/
 ENV/
 .venv
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
 
 # IDE
 .idea/
@@ -18,3 +21,6 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+
+# pre-commit
+.pre-commit-cache/
