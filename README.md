@@ -75,7 +75,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Установка зависимостей
-pip install -r requirements.txt
+pip install -e ".[dev]"
 ```
 
 ### 3. Открытие порта в фаерволе
@@ -92,15 +92,22 @@ sudo firewall-cmd --reload
 # Для iptables
 sudo iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
 sudo iptables-save
+
+# Или используй готовый скрипт
+chmod +x setup_firewall.sh
+./setup_firewall.sh
 ```
 
 ### 4. Запуск приложения
 
 ```bash
-# Простой запуск
+# Активация окружения
+source venv/bin/activate
+
+# Запуск (для разработки)
 uvicorn app:app --host 0.0.0.0 --port 5000
 
-# Для продакшена (с автозапуском через systemd)
+# Для продакшена (несколько воркеров)
 uvicorn app:app --host 0.0.0.0 --port 5000 --workers 4
 ```
 
@@ -115,6 +122,7 @@ After=network.target
 
 [Service]
 User=www-data
+Group=www-data
 WorkingDirectory=/path/to/plain-web-app
 ExecStart=/path/to/plain-web-app/venv/bin/uvicorn app:app --host 0.0.0.0 --port 5000 --workers 4
 Restart=always
@@ -132,13 +140,11 @@ sudo systemctl start plain-web-app
 sudo systemctl status plain-web-app
 ```
 
----
+### 6. Проверка работы
 
-## Доступ к приложению
-
-После запуска приложение будет доступно по адресу:
+Открой в браузере:
 ```
-http://<IP-вашего-сервера>:5000
+http://<IP-вашего-сервера>:5000/hello
 ```
 
 ---
