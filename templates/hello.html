@@ -14,6 +14,7 @@
         body {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -35,6 +36,34 @@
             font-size: 4rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             animation: bounce 2s infinite;
+        }
+
+        .nav-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: #fff;
         }
 
         @keyframes fadeIn {
@@ -61,6 +90,10 @@
 <body>
     <div class="container">
         <h1>Привет!</h1>
+        <div class="nav-buttons">
+            <a href="/hello" class="nav-btn active">Привет!</a>
+            <a href="/goodbye" class="nav-btn">Пока!</a>
+        </div>
     </div>
 </body>
 </html>

@@ -3,7 +3,12 @@
     "allow": [
       "Bash(mkdir *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(curl *)",
+      "Bash(taskkill *)",
+      "Bash(.\\venv\\scripts\\activate)",
+      "Bash(uvicorn *)",
+      "Bash(timeout *)"
     ]
   },
   "$version": 3
