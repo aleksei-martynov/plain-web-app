@@ -5,8 +5,17 @@
 ## Быстрый старт (локально)
 
 ```bash
+# Создание виртуального окружения
+python -m venv venv
+
+# Активация (Windows)
+venv\Scripts\activate
+
+# Активация (Linux/macOS)
+source venv/bin/activate
+
 # Установка зависимостей
-pip install -r requirements.txt
+pip install -e ".[dev]"
 
 # Запуск приложения
 uvicorn app:app --host 0.0.0.0 --port 5000
